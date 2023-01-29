@@ -15,7 +15,7 @@ const change_date_text = (date_text) => {
     const year = date_split[0];
     const month = date_split[1];
     const day = date_split[2].split("T")[0];
-    document.getElementById("date_text").innerText = `${year}.${month}.${day}`;
+    document.getElementById("date_text").innerText = `${year}. ${month}. ${day}`;
 }
 
 const call_api = async () => {
