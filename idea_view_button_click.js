@@ -1,3 +1,15 @@
+const call_api_to_idea_detail = async () => {
+    let fetch_return_value = await fetch("http://54.83.101.17:8080/trade/1")
+                    .then((response) => response.json());
+
+    const json_result = await fetch_return_value['result']
+    const json_description = await json_result['description'];
+    console.log(json_description)
+    const idea_detail_texts = JSON.parse(json_description);
+    console.log(idea_detail_texts)
+    return idea_detail_texts.content;
+}
+
 const change_button_text = (button) => {
     if (button.innerText === "아이디어 열람") {
         button.innerText = "아이디어 접기";
@@ -14,7 +26,7 @@ const close_idea_detail_view = () => {
     location_to_be_deleted.innerHTML = "";
 }
 
-const open_idea_detail_view = () => {
+const open_idea_detail_view = async () => {
     const location_to_be_added = document.getElementById("idea_details_wrapper");
     location_to_be_added.innerHTML = `
     <div id="idea_details" class="font_default_set">
@@ -26,13 +38,7 @@ const open_idea_detail_view = () => {
 
     <div id="idea_detail_text_wrapper">
         <div id="idea_detail_text" class="font_default_set font_weight_regular font_size_16 font_color_black">
-            제가 생각한 아이디어는 바로 
-            깨끗하게 잘 씻은 꼬막에 
-            간장 양념 대신 와사비 양념을 끼얹는 것입니다. 
-            와사비를 좋아하는 분이라면 누구든 맛있게 
-            드실 수 있는 아삭 상큼 초록색 맛, 
-            오늘 저녁은 꼬막 와사비 무침 어떠실까요? 
-            구매해 주셔서 감사합니다.
+            
         </div>
     </div>
 
@@ -45,6 +51,23 @@ const open_idea_detail_view = () => {
     <div class="dividing_line">
     </div>
     `;
+
+    const idea_detail_text_arr = await call_api_to_idea_detail();
+
+    const idea_detail_div = document.getElementById("idea_detail_text");
+
+    const idea_detail_text = '';
+
+    idea_detail_text_arr.forEach((value, index, array) => {
+        if (value.type == 'text') {
+            idea_detail_div.innerHTML += `<div class="idea_detail idea_detail_margin_text">${value.content}</div>`;
+        }
+        else {
+            idea_detail_div.innerHTML += `<img src="${value.content}" class="idea_detail_img idea_detail_margin_img">`;
+        }
+    });
+
+    //idea_detail_div.innerText = idea_detail_text;
 }
 
 const change_idea_detail_view_state = (changed_button_text) => {
