@@ -35,8 +35,8 @@
             </div>
 
 
-            <div id="semi_title_wrapper">
-                <div id="semi_title">
+            <div class="semi_title_wrapper">
+                <div class="semi_title">
                     아이디어 요약
                 </div>
             </div>
@@ -93,7 +93,8 @@
 
 
             <div id="idea_view_button_wrapper">
-                <div id="idea_view_button" class="button_radius_4 font_default_set font_size_16">
+                <div id="idea_view_button" class="button_radius_4 font_default_set font_size_16"
+                    onclick="idea_view_button_click(this)">
                     아이디어 열람
                 </div>
             </div>
@@ -102,17 +103,9 @@
             </div>
 
 
-            <!-- <div id="idea_details_wrapper">
-            <div id="idea_details">
-                <br><br>
-                아이디어 디테일 추가될 곳
-                <br><br><br>
+            <div id="idea_details_wrapper">
+                <!-- 상세 아이디어 추가될 곳 -->
             </div>
-        </div>
-
-
-        <div class="dividing_line">
-        </div> -->
 
 
             <div id="profile_tab_wrapper">
@@ -146,7 +139,7 @@
 
 
             <div id="use_scope_wrapper">
-                <div id="use_scope" class="font_default_set font_size_20 font_weight_bold">
+                <div id="use_scope" class="font_default_set font_size_20 font_weight_bold" onclick="use_scope_button_click()">
                     <span id="use_scope_title">
                         이용 가능 범위
                     </span>
@@ -155,7 +148,15 @@
                     </span>
                 </div>
             </div>
+
+            <div id="to_add_use_scope">
+                    <!-- 이용 가능 범위 detail 추가될 곳 -->
+                
+            </div>
+        
         </div>
+
+        <div id="end_line"></div>
 
         <div id="gray_empty_space" class="gray_empty_space">
         </div>
@@ -164,5 +165,7 @@
 
 
     </div>
-    <script src="empty_space_resize.js"></script>
+
+    <script src="idea_view_button_click.js"></script>
+    <script src="use_scope_button_click.js"></script>
 </body>
