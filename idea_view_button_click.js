@@ -43,7 +43,7 @@ const open_idea_detail_view = async () => {
     </div>
 
     <div id="review_button_wrapper">
-        <div id="review_button" class="button_radius_4 font_default_set font_size_16 font_weight_bold font_color_white">
+        <div id="review_button" onclick="review_button_click()" class="button_radius_4 font_default_set font_size_16 font_weight_bold font_color_white">
             리뷰 작성
         </div>
     </div>
