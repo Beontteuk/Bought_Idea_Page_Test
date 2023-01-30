@@ -38,7 +38,7 @@ const open_idea_detail_view = async () => {
 
     <div id="idea_detail_text_wrapper">
         <div id="idea_detail_text" class="font_default_set font_weight_regular font_size_16 font_color_black">
-            
+            아이디어 디테일
         </div>
     </div>
 
