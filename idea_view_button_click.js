@@ -1,5 +1,5 @@
 const call_api_to_idea_detail = async () => {
-    let fetch_return_value = await fetch("http://54.83.101.17:8080/trade/1")
+    let fetch_return_value = await fetch("http://54.83.101.17:8080/trade/2")
                     .then((response) => response.json());
 
     const json_result = await fetch_return_value['result']
