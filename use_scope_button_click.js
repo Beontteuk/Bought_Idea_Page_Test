@@ -1,5 +1,5 @@
 const get_commercial_available_value = async () => {
-    let fetch_return_value = await fetch("http://54.83.101.17:8080/trade/2")
+    let fetch_return_value = await fetch(get_api_address())
                     .then((response) => response.json());
 
     const json_result = await fetch_return_value['result']
